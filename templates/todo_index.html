@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>todo</title>
-    <link rel="stylesheet",
-    href=""http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <link rel="stylesheet"
+    href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
     <style type="text/css">
         .todo-table {
             margin: 0 auto;
@@ -15,7 +15,7 @@
     </style>
 </head>
 <body>
-    <div class="todo-head center">
+    <div class="center">
         <h1>Todo</h1>
         <form action="{{ url_for('.add') }}" method="post">
             <input type="text" name="task" placeholder="add todo">
@@ -23,6 +23,7 @@
             value="Add">
         </form>
     </div>
+
     <table class="todo-table pure-table pure-table-horizontal
         pure-table-striped">
         <thead>
@@ -38,11 +39,11 @@
         {% for todo in todo_list %}
             <tr>
                 <td>{{ todo.id }}</td>
-                <td>{{ todo.task}}</td>
+                <td>{{ todo.task }}</td>
                 <td>{{ todo.created_time }}</td>
-                <td><a href={{ url_for('.delete', id=todo.id)
-                        }}>delete</a></td>
-                <td><a href={{ url_for('.edit', id=todo.id) }}>edit</a></td>
+                <td><a href="{{ url_for('.delete', id=todo.id)
+                        }}">delete</a></td>
+                <td><a href="{{ url_for('.edit', id=todo.id) }}">edit</a></td>
             </tr>
         {% endfor %}
         </tbody>
