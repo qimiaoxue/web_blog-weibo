@@ -18,3 +18,18 @@ class Todo(db.Model, ModelMixin):
     def update(self, form):
         self.task = form.get('task', '')
         self.save()
+
+    def json(self):
+        d = dict(
+            id=self.id,
+            task=self.task,
+            created_time=self.created_time,
+        )
+        return d
+
+    def valid(self):
+        return len(self.task) > 0
+
+    def error_message(self):
+        if len(self.task) <= 0:
+            return 'task at least need a word'
