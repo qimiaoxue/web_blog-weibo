@@ -5,6 +5,9 @@
     <title>todo</title>
     <link rel="stylesheet"
     href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/todo.js"></script>
     <style type="text/css">
         .todo-table {
             margin: 0 auto;
@@ -17,33 +20,32 @@
 <body>
     <div class="center">
         <h1>Todo</h1>
-        <form action="{{ url_for('.add') }}" method="post">
-            <input type="text" name="task" placeholder="add todo">
-            <input class="pure-button pure-button-primary" type="submit"
+            <input id="todo-add-content" type="text" name="task" placeholder="add todo">
+            <input id="todo-add-button" class="pure-button pure-button-primary" type="submit"
             value="Add">
-        </form>
     </div>
-
-    <table class="todo-table pure-table pure-table-horizontal
-        pure-table-striped">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Task</th>
-                <th>Time</th>
-                <th>Action</th>
-                <th>Update</th>
-            </tr>
-        </thead>
-        <tbody>
+    <div class="todo-table-head">
+        <table class="todo-table pure-table pure-table-horizontal
+            pure-table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Task</th>
+                    <th>Time</th>
+                    <th>Action</th>
+                    <th>Update</th>
+                </tr>
+            </thead>
+        <tbody class="todo-table-container">
         {% for todo in todo_list %}
-            <tr>
+            <tr class="todo-table-cell">
                 <td>{{ todo.id }}</td>
-                <td>{{ todo.task }}</td>
+                <td class="todo-table-content">{{ todo.task }}</td>
                 <td>{{ todo.created_time }}</td>
-                <td><a href="{{ url_for('.delete', id=todo.id)
-                        }}">delete</a></td>
-                <td><a href="{{ url_for('.edit', id=todo.id) }}">edit</a></td>
+                <td><button class="todo-table-delete" data-id="{{ todo.id
+                        }}">delete</button></td>
+                <td><button class="todo-table-update" data-id="{{ todo.id
+                        }}">update</button></td>
             </tr>
         {% endfor %}
         </tbody>
