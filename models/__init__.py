@@ -5,7 +5,11 @@ db = SQLAlchemy()
 
 
 def timestamp():
-    return int(time.time())
+    format = '%Y/%m/%d %H:%M:%S'
+    v = int(time.time()) + 3600 * 8
+    valuegmt = time.gmtime(v)
+    dt = time.strftime(format, valuegmt)
+    return dt
 
 
 class ModelMixin(object):
