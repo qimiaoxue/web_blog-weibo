@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/css/main.css">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/weibo.js"></script>
+    <title>weibo</title>
+</head>
+<body>
+    <div class="head">
+        <div class="left title">qimiaoxue</div>
+        <div class="right head">
+            <span><a href="/blog">blog</a></span>
+            <span><a href="/weibo">weibo</a></span>
+            <span><a href="/todo">todo</a></span>
+            <span><a href="/profile">profile</a></span>
+            <span><a href="/user/login_out">login out</a></span>
+        </div>
+    </div>
+    <div class="background">
+        <div class="height-20"></div>
+        <div class="content clearfix">
+            <div class="box add-box">
+                <input id="id-input-weibo" name="weibo" class="wei"
+                placeholder="weibo">
+                <br>
+                <button id="id-button-weibo-add" type="submit">publish</button>
+            </div>
+            <div class="height-20"></div>
+            <div class="weibo-container box">
+                {% for w in weibos %}
+                    <div class="weibo-cell cell item">
+                        <img src="{{ w.avatar }}" class="avatar">
+                        <span>{{ w.weibo }}</span>
+                        <span class="right span-margin">{{ w.created_time }}</span>
+                        <span class="right span-margin">by:{{ w.name }}</span>
+                        <div class="right span-margin">
+                            <button class="weibo-delete" data-id="{{ w.id }}">delete</button>
+                            <a href="#" class="com">comment({{ w.comments_num
+                                }})</a>
+                        </div>
+                        <div class="comment-div hide">
+                            <div class="">
+                            {% for c in w.comment %}
+                                <div class="cell-inner item">
+                                    <img src="{{ c.avatar }}" class="avatar-s">
+                                    <span class="comment">{{ c.comment }}</span>
+                                    <span class="time right span-margin">{{
+                                        c.created_time }}</span>
+                                    <span class="name right span-margin">{{
+                                        c.name }}</span>
+                                </div>
+                            {% endfor %}
+                            </div>
+                            <div class="comment-form">
+                                <input type="hidden" name="weibo_id" value="{{ w.id
+                                }}">
+                                <input name="comment" class="left m"
+                                placeholder="comment">
+                                <button>publish comment</button>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        <div class="height-20"></div>
+        </div>
+    </div>
+</body>
+</html>
+
