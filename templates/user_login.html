@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/css/main.css">
+    <title>register & login</title>
+</head>
+<body>
+    <div class="head">
+        <div class="left title">qimiaoxue</div>
+        <div class="right head">
+            <span><a href="/blog">blog</a></span>
+            <span><a href="/weibo">weibo</a></span>
+            <span><a href="/todo">todo</a></span>
+            <span><a href="/profile">profile</a></span>
+            <span><a href="/user/login_out">login out</a></span>
+        </div>
+    </div>
+    <div class="content-body">
+        <div id="layer1" style="position:absolute; width:100%;
+                height:100%; z-index:-1">
+            <img
+            src="http://interfacelift.com/wallpaper/previews/04072_milfordsoundsunset_672x420.jpg"
+            height="100%" width="100%">
+        </div>
+        <div class="content-title">
+            <h1>ColorfulTree</h1>
+        </div>
+        <h2>register</h2>
+        <form class="" action="/user/register" method="post">
+	        <input name="username" type="text" placeholder="Username">
+	        <input name="password" type="password" placeholder="Passname">
+	        <button type="submit" class="">register</button>
+        </form>
+        <h2>login</h2>
+        <form class="" action="/user/login" method="post">
+	        <input name="username" type="text" placeholder="Username">
+	        <input name="password" type="password" placeholder="Password">
+	        <button type="submit" class="">login</button>
+        </form>
+    </div>
+</body>
+</html>
+
