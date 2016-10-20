@@ -1,4 +1,4 @@
-*.un~
-*.ropeproject/
-*__pycache__/
-*.pyc
+*.un~*
+*.ropeproject/*
+*__pycache__*
+*.pyc*
