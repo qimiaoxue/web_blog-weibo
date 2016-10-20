@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"
+    <link rel="stylesheet" href="/static/css/main.css">
+    <title>qimiaoxue's Wonderland</title>
+</head>
+<body>
+    <div class="head">
+        <div class="left title">qimiaoxue</div>
+        <div class="right">
+            <span><a href="/blog">blog</a></span>
+            <span><a href="/weibo">weibo</a></span>
+            <span><a href="/todo">todo</a></span>
+            <span><a href="/profile">profile</a></span>
+            <span><a href="/user/login_out">login out</a></span>
+        </div>
+    </div>
+    <div class="background">
+        <div class="height-20"></div>
+        <div class="container clearfix">
+            <div class="right-panel right">
+                <div class="box name-board">
+                    <img class="avatar-l name-board-avatar"
+                    src="http://vip.cocode.cc/uploads/avatar/fault.png" alt="">
+                    <div class="personal-des">
+                        Hello, I am qimiaoxue
+                    </div>
+                    <div class="personal-des">
+                        Welcome here
+                    </div>
+                    <div class="personal-des">
+                        Please write some comments
+                    </div>
+                    <div class="personal-des">
+                        Have a nice day!
+                    </div>
+                </div>
+                <div class="height-20"></div>
+                <div class="box link-board">
+                    <pre class="poem">
+If you miss the train I'm on
+You will know that I am gone
+You can hear the whistle blow a hundred miles
+A hundred miles,a hundred miles
+A hundred miles,a hundred miles
+You can hear the whistle blow a hundred miles
+Lord, I'm one, Lord, I'm two
+Lord, I'm three, Lord, I'm four
+Lord, I'm 500 miles away from home
+Away from home, away from home
+Away from home, away from home
+Lord, I'm 500 miles away from home
+Not a shirt on my back
+Not a penny to my name
+Lord, I can't go back home this a-way
+This a-way, this a-way
+This a-way, this a-way
+Lord, I can't go back home this a-way
+If you miss the train I'm on
+You will know that I am gone
+You can hear the whistle blow a hundred miles
+A hundred miles a hundred miles
+You can hear the whistle blow a hundred miles
+You can hear the whistle blow a hundred miles
+You can hear the whistle blow a hundred miles
+                </pre>
+            </div>
+            </div>
+            <div class="main-panel">
+                    <div class="box add-box">
+                        <form class="out" action="/blog/add" method="post">
+                            <input class="wei" name="title"
+                            placeholder="Title"></input>
+                            <br>
+                            <textarea class="" name="content"
+                                placeholder="Blog" cols="30" rows="20">
+                            </textarea>
+                            <button class="pure-button pure-button-primary
+                                sub" type="submit">publish blog</button>
+                        </form>
+                    </div>
+                    <div class="height-20"></div>
+                    <div class="box">
+                        {% for b in blogs %}
+                            <div class="cell item">
+                                <div>
+                                    {{ b.title }}
+                                </div>
+                                <pre>i{{ b.content }}</pre>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="height-20"></div>
+                </div>
+            </div>
+       </div>
+    </div>
+</body>
+</html>
+
