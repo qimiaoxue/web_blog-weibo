@@ -1,4 +1,5 @@
 var log = function() {
+
     console.log(arguments)
 }
 
@@ -83,7 +84,7 @@ var bindEventTodoUpdate = function() {
             var div = $(this).parent()
             var todoUpdate = div.find('.id-update-content').val()
             var form = {
-                task: todoUpdate, 
+                task: todoUpdate,
             }
             api.todoUpdate(todoId, form, function(response){
                 var r = response
