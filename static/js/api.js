@@ -2,10 +2,12 @@ var api = {}
 
 
 api.ajax = function(url, method, form, callback) {
+    var data = JSON.stringify(form)
     var request = {
         url: url,
         type: method,
-        data: form,
+        contentType: 'application/json',
+        data: data,
         success: function(response) {
             var r = JSON.parse(response)
             callback(r)
@@ -47,4 +49,22 @@ api.todoDelete = function(todoId, response) {
 api.todoUpdate = function(todoId, form, response) {
     var url = '/api/todo/update/' + todoId
     api.post(url, form, response)
+}
+
+
+api.blogCommentAdd = function(form, response) {
+    var url = '/api/blog/comment/add'
+    api.post(url, form, response)
+}
+
+
+api.weiboAdd = function(form, response) {
+    var url = '/api/weibo/add' 
+    api.post(url, form, response)
+}
+
+
+api.weiboDelete = function(weiboId, response) {
+    var url = '/api/weibo/delete/' + weiboId
+    api.get(url, response)
 }
